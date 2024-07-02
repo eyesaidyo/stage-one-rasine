@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rasine's page</title>
+  <link rel="stylesheet" href="styles.css">
+  
+</head>
+<body>
+  <div class="app">
+    <div class="left">
+      <div class="img-wrap">
+        <img src="T03898UQN23-U03AHHXUK40-fec9d0ff6af8-512.jpg" alt="rasine" data-testid="slackProfilePicture"/>
+      </div>
+      <div class="bottom">
+        <p>Hey, I'm <span data-testid="slackDisplayName">Rasine</span>, welcome to my site. Today is <span id="day" data-testid="currentDay"></span> and the time is <span id="time" data-testid="currentTimeUTC"></span>. Feel free to reach me at the email: <span data-testid="slackEmail">rajonirem8@gmail.com</span></p>
+      </div>
+      
+    </div>
+    <div class="right">
+      <h2>Tech Goals For The Next Two Years</h2>
+      <div class="list-wrap">
+        <ul>
+          <li>Learn Node JS and complete 5 projects for my portfolio</li>
+          <li>Finish as a finalist in HNG internship</li>
+          <li>Get hired for a remote software engineering role</li>
+        </ul>
+      </div>
+      <h3>My Links</h3>
+      <div class="links">
+        <a href="https://keyword.dog/" data-testid="keywordLink">
+          <img class="link-img" src="keyword.svg" />
+        </a>
+        <a href="https://scrapeanyweb.site/" data-testid="scrapeanywebLink">
+          <img class="link-img" src="scrape.png" />
+        </a>
+        <a href="https://hng.tech/learn" data-testid="hngLink">
+          <img class="link-img" src="hng.png" />
+        </a>
+      </div>
+    </div>
+  </div>
+  <script>
+    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    let date=new Date()
+    let day= date.getUTCDay()
+    let time=date.toUTCString()
+    let dayElement=document.getElementById('day');
+    let timeElement= document.getElementById('time')
+    function getUTCTime() {
+    const hours = String(date.getUTCHours()).padStart(2, '0');
+    const minutes = String(date.getUTCMinutes()).padStart(2, '0');
+    const seconds = String(date.getUTCSeconds()).padStart(2, '0');
+    return `${hours}:${minutes}:${seconds} UTC`;
+}
+    dayElement.innerText=days[day];
+    timeElement.innerText=getUTCTime()
+  </script>
+</body>
+</html>
